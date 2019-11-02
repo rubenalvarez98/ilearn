@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-left">
+      NIVEL 1
+    </ion-title>
+  </ion-toolbar>
+  <ion-title class="ion-text-right" color="medium">
+    {{ totalAnswer }}/{{ totalQuestions }}
+  </ion-title>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-card *ngFor="let question of currentQuestion" color="card-question">
+    <ion-card-header color="tertiary">
+      <ion-card-title class="ion-text-center">
+        {{ question.question.text }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-radio-group>
+        <ion-item
+          *ngFor="let option of question.options"
+          [color]="option.color.length > 0 ? option.color : 'card-question'"
+          lines="full"
+          [disabled]="contesto"
+        >
+          <ion-label class="ion-text-wrap ion-text-left ion-text-capitalize">
+            {{ option.option }}
+          </ion-label>
+          <ion-radio slot="start" (click)="check(option.id)"> </ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button tab="   ">
+      <ion-icon color="success" name="fastforward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+  <!-- <ion-list>
+    <ion-card class="ion-text-center" color="primary">1 de 10</ion-card>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-text color="primary">
+          <font size="3">¿Que es es la informática?</font>
+        </ion-text>
+      </ion-list-header>
+      <ion-card>
+        <ion-item>
+          <ion-text>
+            <font size="2.5"
+              >Ciencia que estudia la estructura y forma de las diferentes
+              partes del cuerpo de los seres vivos</font
+            >
+          </ion-text>
+          <ion-radio slot="start" value="biff" checked></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-text>
+            <font size="2.5"
+              >Conjunto de conocimientos técnicos que se ocupan del tratamiento
+              automático de la información por medio de computadoras</font
+            >
+          </ion-text>
+          <ion-radio slot="start" value="griff"></ion-radio>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-text>
+            <font size="2.5"
+              >Ciencia que estudia la composición y las propiedades de la
+              materia</font
+            >
+          </ion-text>
+          <ion-radio slot="start" value="buford"></ion-radio>
+        </ion-item>
+      </ion-card>
+    </ion-radio-group>
+  </ion-list> -->
+
+  <!-- fab placed to the top end -->
+</ion-content>
