@@ -163,7 +163,7 @@ export class Tab2Page {
   }
 
   /* verifica la selección del usuario si es correcta */
-  async check(idOptPress) {
+  async check(idOptPress: number) {
     const correctQuestion = this.currentQuestion[0].question.correct;
 
     this.cambiarOptSelect(idOptPress, correctQuestion);
@@ -209,7 +209,7 @@ export class Tab2Page {
   }
 
   /* cambiar el color de texto de la opción que eligio  verde será la respuesta correcta roja la incorrecta */
-  cambiarOptSelect(select, correct) {
+  cambiarOptSelect(select: number, correct: number) {
     this.currentQuestion[0].options.forEach(e => {
       if (e.id === select && e.id !== correct) {
         e.color = 'danger';
