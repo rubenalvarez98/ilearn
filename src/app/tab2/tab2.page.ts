@@ -150,12 +150,14 @@ export class Tab2Page {
 
   audioCorrect = new Audio();
 
+  postions: Array<number> = [];
+
   constructor(
     private alertsService: AlertsService,
     private vibration: Vibration,
     private navCtrl: NavController
   ) {
-    this.currentQuestion[0] = this.questions[0];
+    this.nextQuestion();
 
     this.totalQuestions = this.questions.length;
 
@@ -169,13 +171,10 @@ export class Tab2Page {
     this.cambiarOptSelect(idOptPress, correctQuestion);
 
     this.contesto = true;
-    /*  question: {
-        text: `¿Qué es un sistema operativo?`,
-        correct: 1
-      }, */
 
     if (idOptPress === correctQuestion) {
       await this.alertsService.toastAlert('Es correcto ', 'success');
+
       this.totalCorrects++;
       this.audioCorrect.play();
     } else {
@@ -190,10 +189,10 @@ export class Tab2Page {
         this.nextQuestion();
       }, 2000);
     } else {
-      console.log(this.totalCorrects);
       this.navCtrl.navigateRoot(`/end-game/${this.totalCorrects}`, {
         animated: true
       });
+
       this.contesto = false;
       this.currentQuestion = [];
       this.totalAnswer = 0;
@@ -203,12 +202,18 @@ export class Tab2Page {
   nextQuestion() {
     this.contesto = false;
     this.next++;
-    if (this.next < 5) {
-      this.currentQuestion[0] = this.questions[this.next];
+
+    if (this.next <= 5) {
+      const position = this.randomPosition();
+
+      this.currentQuestion[0] = this.questions[position];
+      this.postions.push(position);
     }
   }
 
-  /* cambiar el color de texto de la opción que eligio  verde será la respuesta correcta roja la incorrecta */
+  /** cambiar el color de texto de la opción que eligio
+   *  verde será la respuesta correcta roja la incorrecta
+   */
   cambiarOptSelect(select: number, correct: number) {
     this.currentQuestion[0].options.forEach(e => {
       if (e.id === select && e.id !== correct) {
@@ -218,5 +223,31 @@ export class Tab2Page {
         e.color = 'success';
       }
     });
+  }
+
+  randomPosition() {
+    let position = 0;
+    let valid = true;
+
+    do {
+      position = this.randomNumber();
+
+      if (!this.repeatPosition(position)) {
+        valid = false;
+      }
+    } while (valid);
+
+    return position;
+  }
+
+  randomNumber(): number {
+    return Math.floor(Math.random() * this.questions.length);
+  }
+
+  /**
+   * @param position posición a buscar, si la encuentra retorna true si no false
+   */
+  repeatPosition(position: number) {
+    return this.postions.includes(position);
   }
 }
