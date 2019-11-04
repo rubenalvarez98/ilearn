@@ -23,9 +23,11 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       /* this.statusBar.styleDefault(); */
-      this.splashScreen.hide();
-      this.statusBar.backgroundColorByHexString('104354');
-      this.screenOrientation.lock('portrait');
+      if (this.platform.is('android')) {
+        this.splashScreen.hide();
+        this.statusBar.backgroundColorByHexString('104354');
+        this.screenOrientation.lock('portrait');
+      }
     });
   }
 }

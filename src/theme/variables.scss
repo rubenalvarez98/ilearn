@@ -89,6 +89,14 @@
   --ion-color-card-question-contrast-rgb: 255, 255, 255;
   --ion-color-card-question-shade: #0f3e4d;
   --ion-color-card-question-tint: #295968;
+
+  /* marker */
+  --ion-color-marker: #ebd014;
+  --ion-color-marker-rgb: 235, 208, 20;
+  --ion-color-marker-contrast: #000000;
+  --ion-color-marker-contrast-rgb: 0, 0, 0;
+  --ion-color-marker-shade: #cfb712;
+  --ion-color-marker-tint: #edd52c;
 }
 .ion-color-tab {
   --ion-color-base: var(--ion-color-tab);
@@ -106,4 +114,12 @@
   --ion-color-contrast-rgb: var(--ion-color-card-question-contrast-rgb);
   --ion-color-shade: var(--ion-color-card-question-shade);
   --ion-color-tint: var(--ion-color-card-question-tint);
+}
+.ion-color-marker {
+  --ion-color-base: var(--ion-color-marker);
+  --ion-color-base-rgb: var(--ion-color-marker-rgb);
+  --ion-color-contrast: var(--ion-color-marker-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-marker-contrast-rgb);
+  --ion-color-shade: var(--ion-color-marker-shade);
+  --ion-color-tint: var(--ion-color-marker-tint);
 }
