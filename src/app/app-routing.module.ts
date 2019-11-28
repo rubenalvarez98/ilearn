@@ -9,8 +9,12 @@ const routes: Routes = [
   {
     path: 'end-game/:id',
     loadChildren: './end-game/end-game.module#EndGamePageModule'
-  },  { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' }
-
+  },
+  { path: 'inicio', loadChildren: './inicio/inicio.module#InicioPageModule' },
+  {
+    path: '',
+    loadChildren: './inicio/inicio.module#InicioPageModule'
+  }
 ];
 @NgModule({
   imports: [
