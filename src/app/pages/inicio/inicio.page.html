@@ -1,37 +1,37 @@
 <ion-header>
-  <ion-toolbar color="tab">
-    <ion-title class="ion-text-center">
-      ILEARN
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar color="header">
+		<ion-title class="ion-text-center">
+			ILEARN
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content color="tab">
-  <img src="/assets/logoapp.png" id="logo" />
+	<img src="/assets/logoapp.png" id="logo" />
 
-  <ion-card>
-    <ion-card-header color="primary">
-      <ion-card-subtitle class="ion-text-center" color="dark"
-        >Aprende informatica basica facil y divertido
-      </ion-card-subtitle>
-    </ion-card-header>
-    <ion-tab-button tab="tab2" class="jugar">
-      <ion-icon
-        color="danger"
-        name="logo-game-controller-b"
-        id="iconojugar"
-      ></ion-icon>
-      <ion-label color="danger" id="jugar">JUGAR</ion-label>
-    </ion-tab-button>
+	<ion-card>
+		<ion-card-header color="primary">
+			<ion-card-subtitle class="ion-text-center" color="dark"
+				>Aprende informatica basica facil y divertido
+			</ion-card-subtitle>
+		</ion-card-header>
+		<ion-tab-button routerLink="/niveles" class="jugar">
+			<ion-icon
+				color="danger"
+				name="logo-game-controller-b"
+				id="iconojugar"
+			></ion-icon>
+			<ion-label color="danger" id="jugar">JUGAR</ion-label>
+		</ion-tab-button>
 
-    <ion-tab-button tab="tab3" class="nuevojugador">
-      <ion-icon color="danger" name="person-add" id="icononuevo"></ion-icon>
-      <ion-label color="danger" id="nuevo">NUEVO</ion-label>
-    </ion-tab-button>
+		<ion-tab-button tab="tab3" class="nuevojugador">
+			<ion-icon color="danger" name="person-add" id="icononuevo"></ion-icon>
+			<ion-label color="danger" id="nuevo">NUEVO</ion-label>
+		</ion-tab-button>
 
-    <ion-tab-button [routerLink]="'/progreso'" id="progreso">
-      <ion-icon color="danger" name="school" id="icononuevo"></ion-icon>
-      <ion-label color="danger" id="progreso">PROGRESO</ion-label>
-    </ion-tab-button>
-  </ion-card>
+		<ion-tab-button [routerLink]="'/progreso'" id="progreso">
+			<ion-icon color="danger" name="school" id="icononuevo"></ion-icon>
+			<ion-label color="danger" id="progreso">PROGRESO</ion-label>
+		</ion-tab-button>
+	</ion-card>
 </ion-content>

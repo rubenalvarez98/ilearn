@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="header">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">NIVELES</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="header">
+  <ion-list *ngFor="let nivel of niveles" mode="md">
+    <ion-item
+      [disabled]="nivel.id !== 1"
+      [routerLink]="['/jugar',nivel.id]"
+      color="header"
+      detail
+    >
+      <ion-label>{{nivel.name}}</ion-label>
+      <ion-icon
+        name="lock"
+        slot="start"
+        color="danger"
+        *ngIf="estadosNiveles == null"
+      ></ion-icon>
+      <ion-icon
+        name="unlock"
+        slot="start"
+        *ngIf="nivel.id === 1"
+        color="success"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

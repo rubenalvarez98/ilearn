@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>jugar</ion-title>
+  <ion-toolbar color="header">
+    <ion-title class="ion-text-center">NIVEL {{niveles[tipoNivel].nivel}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content color="header">
+  <app-nivel [preguntas]="niveles[tipoNivel].preguntas"></app-nivel>
 </ion-content>
