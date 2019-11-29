@@ -3,11 +3,29 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'progreso',
+    loadChildren: './pages/progreso/progreso.module#ProgresoPageModule'
   },
-  { path: 'progreso', loadChildren: './progreso/progreso.module#ProgresoPageModule' },
-  { path: 'end-game/:id', loadChildren: './end-game/end-game.module#EndGamePageModule' }
+  {
+    path: 'end-game/:id',
+    loadChildren: './pages/end-game/end-game.module#EndGamePageModule'
+  },
+  {
+    path: 'inicio',
+    loadChildren: './pages/inicio/inicio.module#InicioPageModule'
+  },
+  {
+    path: '',
+    loadChildren: './pages/inicio/inicio.module#InicioPageModule'
+  },
+  {
+    path: 'jugar/:id',
+    loadChildren: './pages/jugar/jugar.module#JugarPageModule'
+  },
+  {
+    path: 'niveles',
+    loadChildren: './pages/niveles/niveles.module#NivelesPageModule'
+  }
 ];
 @NgModule({
   imports: [

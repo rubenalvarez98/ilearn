@@ -1,0 +1,23 @@
+<ion-card *ngFor="let pregunta of preguntaActual" color="card-question">
+  <ion-card-header color="tertiary">
+    <ion-card-title class="ion-text-center">
+      {{ pregunta.titulo }}
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-radio-group>
+      <ion-item
+        *ngFor="let opcion of pregunta.opciones"
+        [color]="opcion.color.length > 0 ? opcion.color : 'card-question'"
+        lines="full"
+        [disabled]="contesto"
+      >
+        <ion-label class="ion-text-wrap ion-text-left ion-text-capitalize">
+          {{ opcion.titulo }}
+        </ion-label>
+        <ion-radio slot="start" (click)="check(opcion.id)"> </ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card-content>
+</ion-card>
